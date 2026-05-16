@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 from sklearn.metrics import silhouette_score
 from sklearn.metrics import silhouette_samples
 
-from sklearn_extra.cluster import KMedoids
+from sklearn.cluster import KMeans
 from kneed import KneeLocator
 
 # =========================================================
