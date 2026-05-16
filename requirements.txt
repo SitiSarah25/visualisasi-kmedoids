@@ -3,6 +3,6 @@ pandas
 numpy
 plotly
 scikit-learn
-scikit-learn-extra
+scikit-learn-extra==0.2.0
 openpyxl
 kneed
