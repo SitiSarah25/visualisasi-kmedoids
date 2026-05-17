@@ -145,16 +145,15 @@ if uploaded_file is not None:
 
         for k in K_range:
 
-            kmedoids = KMedoids(
+            kmeans = KMeans(
                 n_clusters=k,
-                metric='manhattan',
-                init='k-medoids++',
-                random_state=42
+                random_state=42,
+                n_init=10
             )
-
-            kmedoids.fit(X)
-
-            cost.append(kmedoids.inertia_)
+        
+            kmeans.fit(X)
+        
+            cost.append(kmeans.inertia_)
 
         # Knee Locator
         kneedle = KneeLocator(
@@ -201,8 +200,8 @@ if uploaded_file is not None:
             f"✅ Jumlah Cluster Optimal Berdasarkan Elbow Method: K = {optimal_k}"
         )
 
-    except:
-        st.warning("Grafik Elbow tidak dapat ditampilkan.")
+    except Exception as e:
+        st.error(f"Error Elbow Method: {e}")
 
     # =====================================================
     # RATA-RATA CLUSTER
